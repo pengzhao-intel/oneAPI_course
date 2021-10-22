@@ -1,6 +1,4 @@
-   // Copyright (C) 2020 Intel Corporation
-   
-   // SPDX-License-Identifier: MIT
+   // Patric Zhao: patric.zhao@intel.com
    
    #include <CL/sycl.hpp>
    #include <iostream>
