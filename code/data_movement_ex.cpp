@@ -35,6 +35,9 @@
         printf("%d, ", host_mem[i]);
      }
      printf("\nTask Done!\n");
+      
+     free(host_mem, my_gpu_queue);
+     free(device_mem, my_gpu_queue);  
    
      return 0;
    }
