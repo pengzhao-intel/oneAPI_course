@@ -1,5 +1,4 @@
-   // Copyright (C) 2020 Intel Corporation
-   // Patric Zhao:  patric.zhao@intel.com
+  // Patric Zhao:  patric.zhao@intel.com
    
    #include <CL/sycl.hpp>
    #include <iostream>
