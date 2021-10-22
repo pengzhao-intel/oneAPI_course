@@ -1,0 +1,16 @@
+# https://github.com/DavidAnson/markdownlint#rules--aliases
+
+# MD004 ul-style - Unordered list style
+MD004: false
+
+# MD013 line-length - Line length
+MD013: false
+
+# MD033 no-inline-html - Inline HTML
+MD033: false
+
+# MD034 no-bare-urls - Bare URL used
+MD034: false
+
+# MD041 first-line-heading/first-line-h1
+MD041: false

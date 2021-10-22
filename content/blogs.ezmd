@@ -1,0 +1,23 @@
+Title: Blogs
+version: 1.0
+<!-- Licensed under ALv2 -->
+
+### Foundation
+[for foundation]
+#### Post
+[[][foundation.title]]([foundation.href])
+
+[format "raw"][foundation.content][end]
+
+[end]
+
+### Planet
+[for planet]
+[[][planet.title]]([planet.href])
+[end]
+
+### Conferences
+[for conferences]
+[[][conferences.title]]([conferences.href])
+[end]
+

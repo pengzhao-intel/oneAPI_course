@@ -1,0 +1,6 @@
+pelican
+pelican-sitemap
+BeautifulSoup4
+ezt
+PyYAML
+requests

@@ -1,0 +1,13 @@
+Title: Featured
+version: 1.0
+<!-- Licensed under ALv2 -->
+
+## Projects
+[for featured_projs]
+<img alt="Logo" width="100" src="https://www.apache.org/[featured_projs.logo]"/> [[]Apache [featured_projs.display_name]]([featured_projs.site])
+[end]
+
+## Podlings
+[for featured_pods]
+<img alt="Logo" width="100" src="https://www.apache.org/[featured_pods.logo]"/> [[]Apache [featured_pods.name]]([featured_pods.homepage])
+[end]

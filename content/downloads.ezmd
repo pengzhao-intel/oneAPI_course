@@ -1,0 +1,18 @@
+Title: Download Releases
+
+# Releases
+
+[[]TOC]
+
+## Keys
+
+[[]KEYS]([release-keys])
+
+[for release]
+## [release.name]
+[for release.release]* [[][release.release.release]](https://www.apache.org/dyn/closer.lua/[release-project]/[release.version]/[release.release.release])
+  -- ([[]signature](https://downloads.apache.org/[release-project]/[release.version]/[release.release.signature]))
+  -- ([[]checksum](https://downloads.apache.org/[release-project]/[release.version]/[release.release.checksum]))
+  -- ([release.release.fsize])
+  -- ([release.release.dtm])
+[end][end]

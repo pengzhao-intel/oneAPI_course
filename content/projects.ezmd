@@ -1,0 +1,8 @@
+Title: Apache Projects
+version: 1.0
+<!-- Licensed under ALv2 -->
+
+
+| Office    | Individual  |
+|-----------|-------------|  [for projects]
+| V.P., [if-any projects.site][[][end]Apache [projects.display_name][if-any projects.site]]([projects.site])[end] | [projects.chair] |[end]

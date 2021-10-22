@@ -1,0 +1,35 @@
+site:
+  name: Apache Template
+  description: Provides a template for projects wishing to use the Pelican ASF static content system
+  domain: template.apache.org
+  logo: images/logo.png
+  repository: https://github.com/apache/template-site/blob/main/content/
+  trademarks: Apache, the Apache feather logo, and "Project" are trademarks or registered trademarks
+
+theme: theme/apache
+
+# plugins:
+#  paths:
+#    - theme/plugins
+#  use:
+#    - gfm
+
+setup:
+  data: asfdata.yaml
+  run:
+    - /bin/bash shell.sh
+  ignore:
+    - README.md
+    - include
+    - docs
+  copy:
+    - docs
+
+genid:
+  unsafe: yes
+  metadata: yes
+  elements: yes
+  headings_depth: 4
+  permalinks: yes
+  toc_depth: 4
+  tables: yes

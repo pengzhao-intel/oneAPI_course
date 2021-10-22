@@ -1,0 +1,11 @@
+Title: Apache Project List
+version: 1.0
+source_button: yes
+<!-- Licensed under ALv2 -->
+
+# Projects
+
+| Column 1    | Column 2    | Column 3    | Column 4    | Column 5    | Column 6    |
+| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| [for pl_0][is pl_0.letter pl_0.display_name]**[pl_0.letter]**[else][[][pl_0.display_name]]([pl_0.site])[end]<br>[end] | [for pl_1][is pl_1.letter pl_1.display_name]**[pl_1.letter]**[else][[][pl_1.display_name]]([pl_1.site])[end]<br>[end] | [for pl_2][is pl_2.letter pl_2.display_name]**[pl_2.letter]**[else][[][pl_2.display_name]]([pl_2.site])[end]<br>[end] | [for pl_3][is pl_3.letter pl_3.display_name]**[pl_3.letter]**[else][[][pl_3.display_name]]([pl_3.site])[end]<br>[end] | [for pl_4][is pl_4.letter pl_4.display_name]**[pl_4.letter]**[else][[][pl_4.display_name]]([pl_4.site])[end]<br>[end] | [for pl_5][is pl_5.letter pl_5.display_name]**[pl_5.letter]**[else][[][pl_5.display_name]]([pl_5.site])[end]<br>[end] |
+

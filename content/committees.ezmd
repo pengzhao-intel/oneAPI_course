@@ -1,0 +1,8 @@
+Title: Apache Committees
+version: 1.0
+<!-- Licensed under ALv2 -->
+
+| Committee   | Chair       | Paragraph       |
+| ----------- | ----------- | ----------- |
+[for committees][if-any committees.pmc][else]| [committees.display_name] | [committees.chair] | [committees.paragraph] |
+[end][end]
