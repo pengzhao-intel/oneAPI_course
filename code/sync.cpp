@@ -85,6 +85,10 @@
      printf("\n Total Computation, TIme = %lf \n", duration_total);
 
      printf("\nTask Done!\n");
+     
+     free(cpu_mem, my_gpu_queue);
+     free(host_mem, my_gpu_queue);
+     free(device_mem, my_gpu_queue);
    
      return 0;
    }
