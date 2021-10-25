@@ -1,1 +1,4 @@
-
+*Compile:
+dpcpp filename.cpp -o filename_ex
+*Run:
+./filename_ex
