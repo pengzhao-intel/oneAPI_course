@@ -18,8 +18,8 @@ double gpu_kernel(float *A, float *B, float *C,
                   int BLOCK, sycl::queue &q) {
 
   // define the workgroup size and mapping
-  auto grid_rows = M / tileX;
-  auto grid_cols = N / tileY;
+  auto grid_rows = M / tileY;
+  auto grid_cols = N / tileX;
   auto local_ndrange  = range<2>(BLOCK, BLOCK);
   auto global_ndrange = range<2>(grid_rows, grid_cols);
 
@@ -29,8 +29,8 @@ double gpu_kernel(float *A, float *B, float *C,
       h.parallel_for<class k_name_t>(
           sycl::nd_range<2>(global_ndrange, local_ndrange), [=](sycl::nd_item<2> index) {
 
-              int row = tileX * index.get_global_id(0);
-              int col = tileY * index.get_global_id(1);
+              int row = tileY * index.get_global_id(0);
+              int col = tileX * index.get_global_id(1);
 
               float sum[tileY][tileX] = {0.0f};
               float subA[tileY] = {0.0f};
