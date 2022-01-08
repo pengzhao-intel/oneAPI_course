@@ -3,3 +3,7 @@
 This repo is used to show the examples in the course for better understand and try DPC++.
 
 Have a fun and file issue for any quesitons.
+
+I'd like greatly appreciate it if you could star this repository (top-right).
+
+喜欢请点右上角"star" :)
