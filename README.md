@@ -8,11 +8,8 @@ Have a fun and file issue for any quesitons.
 
 If you are interested in oneAPI programming and algorithm, there is a chance to work with us together now.
 
-GPU Algorithm and Performance Analysis
-
 地点：上海， 职能类别：研发类
 
 部门：架构图像及软件事业部
 
 http://www.yingjiesheng.com/job-005-705-884.html
-
