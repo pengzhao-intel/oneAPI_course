@@ -27,9 +27,9 @@
      
      // Enable queue profiling  
      auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-     queue my_gpu_queue(gpu_selector{}, propList);
+     queue my_gpu_queue(sycl::cpu_selector_v, propList);
    
-     std::cout << "Selected GPU device: " <<
+     std::cout << "Selected CPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
 
      float *input        = malloc_host<float>(N, my_gpu_queue);
@@ -87,10 +87,11 @@
          auto event2 = my_gpu_queue.submit([&](handler& h) {
 
            // Define SLM size per work-group      
-           sycl::accessor<float, 1, sycl::access::mode::read_write, 
-                                    sycl::access::target::local>
-                                    slm_buffer(BLOCK + 2, h);
+        //    sycl::accessor<float, 1, sycl::access::mode::read_write, 
+        //                             sycl::access::target::local>
+        //                             slm_buffer(BLOCK + 2, h);
 
+        sycl::local_accessor<float, 1> slm_buffer(BLOCK + 2, h);
 
            h.parallel_for(nd_range<1>(N-2, BLOCK), [=](nd_item<1> item) {
 
@@ -123,8 +124,8 @@
 
      }
 
-     printf("\n GPU Computation, GPU Time w/o SLM = %lf \n", duration_gpu_a / iteration);
-     printf("\n GPU Computation, GPU Time w/  SLM = %lf \n", duration_gpu_b / iteration);
+     printf("\n CPU Computation, CPU Time w/o SLM = %lf \n", duration_gpu_a / iteration);
+     printf("\n CPU Computation, CPU Time w/  SLM = %lf \n", duration_gpu_b / iteration);
 
      printf("\nTask Done!\n");
    

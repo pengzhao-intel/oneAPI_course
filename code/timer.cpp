@@ -10,9 +10,9 @@
      
      // Enable queue profiling  
      auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-     queue my_gpu_queue(gpu_selector{}, propList);
+     queue my_gpu_queue(sycl::cpu_selector_v, propList);
    
-     std::cout << "Selected GPU device: " <<
+     std::cout << "Selected CPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
 
 
@@ -27,9 +27,9 @@
      }
 
      float duration_cpu = 0.0;
-     float duration_gpu_a = 0.0;
-     float duration_gpu_b = 0.0;
-     float duration_gpu_c = 0.0;
+     float duration_cpu_a = 0.0;
+     float duration_cpu_b = 0.0;
+     float duration_cpu_c = 0.0;
 
      std::chrono::high_resolution_clock::time_point s, e;
      std::chrono::high_resolution_clock::time_point s_a, e_a;
@@ -81,20 +81,20 @@
      // wait the computation done
      my_gpu_queue.wait();
      e_b = std::chrono::high_resolution_clock::now();
-     duration_gpu_b =  std::chrono::duration<float, std::milli>(e_b - s_b).count();
+     duration_cpu_b =  std::chrono::duration<float, std::milli>(e_b - s_b).count();
 
-     duration_gpu_a =
+     duration_cpu_a =
       (event.get_profiling_info<info::event_profiling::command_end>() -
       event.get_profiling_info<info::event_profiling::command_start>()) /1000.0f/1000.0f;
    
      // Copy back from GPU to CPU
      my_gpu_queue.memcpy(host_mem, device_mem, N * sizeof(int)).wait();
      e_c = std::chrono::high_resolution_clock::now();
-     duration_gpu_c =  std::chrono::duration<float, std::milli>(e_c - s_c).count();
+     duration_cpu_c =  std::chrono::duration<float, std::milli>(e_c - s_c).count();
 
-     printf("\n GPU Computation, GPU Time A = %lf \n", duration_gpu_a);
-     printf("\n GPU Computation, GPU Time B = %lf \n", duration_gpu_b);
-     printf("\n GPU Computation, GPU Time C = %lf \n", duration_gpu_c);
+     printf("\n CPU Computation, CPU Time A = %lf \n", duration_cpu_a);
+     printf("\n CPU Computation, CPU Time B = %lf \n", duration_cpu_b);
+     printf("\n CPU Computation, CPU Time C = %lf \n", duration_cpu_c);
 
      printf("\nTask Done!\n");
    

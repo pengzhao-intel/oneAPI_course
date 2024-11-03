@@ -10,9 +10,9 @@
      
      // Enable queue profiling  
      auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-     queue my_gpu_queue(gpu_selector{}, propList);
+     queue my_gpu_queue(sycl::cpu_selector_v, propList);
    
-     std::cout << "Selected GPU device: " <<
+     std::cout << "Selected CPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
 
    
