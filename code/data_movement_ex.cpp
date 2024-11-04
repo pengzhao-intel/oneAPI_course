@@ -7,9 +7,10 @@
    constexpr int N = 10;
    
    int main() {
-     queue my_gpu_queue(sycl::cpu_selector_v);
+   //   queue my_gpu_queue(sycl::cpu_selector_v);
+     queue my_gpu_queue(sycl::gpu_selector_v);
    
-     std::cout << "Selected CPU device: " <<
+     std::cout << "Selected GPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
    
      int *host_mem   = malloc_host<int>(N, my_gpu_queue);

@@ -10,9 +10,9 @@
      
      // Enable queue profiling  
      auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-     queue my_gpu_queue(sycl::cpu_selector_v, propList);
-   
-     std::cout << "Selected CPU device: " <<
+    //  queue my_gpu_queue(sycl::cpu_selector_v, propList);
+     queue my_gpu_queue(sycl::gpu_selector_v, propList);
+     std::cout << "Selected GPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
 
 
@@ -92,9 +92,9 @@
      e_c = std::chrono::high_resolution_clock::now();
      duration_cpu_c =  std::chrono::duration<float, std::milli>(e_c - s_c).count();
 
-     printf("\n CPU Computation, CPU Time A = %lf \n", duration_cpu_a);
-     printf("\n CPU Computation, CPU Time B = %lf \n", duration_cpu_b);
-     printf("\n CPU Computation, CPU Time C = %lf \n", duration_cpu_c);
+     printf("\n GPU Computation, GPU Time A = %lf \n", duration_cpu_a);
+     printf("\n GPU Computation, GPU Time B = %lf \n", duration_cpu_b);
+     printf("\n GPU Computation, GPU Time C = %lf \n", duration_cpu_c);
 
      printf("\nTask Done!\n");
    
