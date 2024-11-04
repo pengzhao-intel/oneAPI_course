@@ -27,7 +27,8 @@
      
      // Enable queue profiling  
      auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-     queue my_gpu_queue(gpu_selector{}, propList);
+    //  queue my_gpu_queue(sycl::cpu_selector_v, propList);
+     queue my_gpu_queue(sycl::gpu_selector_v, propList);
    
      std::cout << "Selected GPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
@@ -86,11 +87,14 @@
          // finally write back to global memory
          auto event2 = my_gpu_queue.submit([&](handler& h) {
 
-           // Define SLM size per work-group      
-           sycl::accessor<float, 1, sycl::access::mode::read_write, 
-                                    sycl::access::target::local>
-                                    slm_buffer(BLOCK + 2, h);
+           // Define SLM size per work-group     
 
+        //    sycl::accessor<float, 1, sycl::access::mode::read_write, 
+        //                             sycl::access::target::local>
+        //                             slm_buffer(BLOCK + 2, h);
+
+        //Usage according to the new standards after 2021.
+        sycl::local_accessor<float, 1> slm_buffer(BLOCK + 2, h);
 
            h.parallel_for(nd_range<1>(N-2, BLOCK), [=](nd_item<1> item) {
 

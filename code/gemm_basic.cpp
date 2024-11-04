@@ -149,7 +149,8 @@ int gemm(const int M,
 int main() {
 
   auto propList = cl::sycl::property_list {cl::sycl::property::queue::enable_profiling()};
-  queue my_gpu_queue( cl::sycl::gpu_selector{} , propList);
+//   queue my_gpu_queue( cl::sycl::cpu_selector_v, propList);
+queue my_gpu_queue( cl::sycl::gpu_selector_v, propList);
 
   int errCode = gemm(1024, 1024, 1024, 4, 10, my_gpu_queue);
 

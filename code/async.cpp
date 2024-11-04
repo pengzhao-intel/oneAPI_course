@@ -9,7 +9,8 @@
    int main() {
      
      // Enable queue profiling  
-     queue my_gpu_queue(gpu_selector{});
+     // queue my_gpu_queue(sycl::cpu_selector_v);
+     queue my_gpu_queue(sycl::gpu_selector_v);
    
      std::cout << "Selected GPU device: " <<
        my_gpu_queue.get_device().get_info<info::device::name>() << "\n";
